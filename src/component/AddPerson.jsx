@@ -50,46 +50,48 @@ const AddPersonScreen = () => {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Add New Person</h2>
       {people.length > 0 && (
-        <table className="table-auto w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 px-4 py-2">#</th>
-              <th className="border border-gray-300 px-4 py-2">Name</th>
-              <th className="border border-gray-300 px-4 py-2">Date of Birth</th>
-              <th className="border border-gray-300 px-4 py-2">Aadhar</th>
-              <th className="border border-gray-300 px-4 py-2">Mobile</th>
-              <th className="border border-gray-300 px-4 py-2">Age</th>
-              <th className="border border-gray-300 px-4 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {people.map((person, index) => (
-              <tr
-                key={index}
-                className={`${
-                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                } hover:bg-gray-50 transition-all`}
-              >
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  {index + 1}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">{person.name}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.dob}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.aadhar}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.mobile}</td>
-                <td className="border border-gray-300 px-4 py-2">{person.age}</td>
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  <button
-                    onClick={() => handleDeletePerson(index)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-all"
-                  >
-                    Delete
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border border-gray-300 px-4 py-2">#</th>
+                <th className="border border-gray-300 px-4 py-2">Name</th>
+                <th className="border border-gray-300 px-4 py-2">Date of Birth</th>
+                <th className="border border-gray-300 px-4 py-2">Aadhar</th>
+                <th className="border border-gray-300 px-4 py-2">Mobile</th>
+                <th className="border border-gray-300 px-4 py-2">Age</th>
+                <th className="border border-gray-300 px-4 py-2">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {people.map((person, index) => (
+                <tr
+                  key={index}
+                  className={`${
+                    index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                  } hover:bg-gray-50 transition-all`}
+                >
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    {index + 1}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">{person.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">{person.dob}</td>
+                  <td className="border border-gray-300 px-4 py-2">{person.aadhar}</td>
+                  <td className="border border-gray-300 px-4 py-2">{person.mobile}</td>
+                  <td className="border border-gray-300 px-4 py-2">{person.age}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    <button
+                      onClick={() => handleDeletePerson(index)}
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-all"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
       <button
         onClick={() => setShowForm(!showForm)}

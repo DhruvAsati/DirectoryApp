@@ -18,7 +18,7 @@ const RetrieveScreen = () => {
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 overflow-x-auto">
       <h2 className="text-2xl font-bold mb-4">Retrieve Information</h2>
       <input
         type="text"
